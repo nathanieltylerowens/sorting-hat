@@ -46,6 +46,10 @@ const sortStudent = (event) => {
   // console.log(sortedStudent);
   let student = [];
 
+  if (document.querySelector('#name').value === "" ) {
+    alert("FILL IN YOUR NAME");
+    return
+  }
   student.name = document.querySelector('#name').value;
   student.house = sortingHat();
   student.unique = Math.floor(Math.random() * 100);
@@ -60,10 +64,6 @@ const printedCard = () => {
   
   for (let i = 0; i < sortedStudent.length; i++) {
 
-    if (sortedStudent[i].name === "" ) {
-        alert("FILL IN YOUR NAME");
-    } else {
-
 
     domString += `<div class="card" style="width: 18rem;">`
     domString += `<div class="card-body">`
@@ -73,7 +73,6 @@ const printedCard = () => {
     domString += `</div>`
     domString += `</div>`
     
-}
 }
       printToDom('#card', domString);
       const buttons = document.querySelectorAll('.expel');
