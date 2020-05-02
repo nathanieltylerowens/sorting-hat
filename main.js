@@ -39,6 +39,7 @@ const sortingHat = () =>{
     break;
   }
 }
+
 const sortedStudent= [];
 // console.log(sortedStudent);
 const sortStudent = (event) => {
@@ -47,6 +48,7 @@ const sortStudent = (event) => {
 
   student.name = document.querySelector('#name').value;
   student.house = sortingHat();
+  student.unique = Math.floor(Math.random() * 100);
   sortedStudent.push(student);
 
   printedCard();
@@ -58,7 +60,7 @@ const printedCard = () => {
   
   for (let i = 0; i < sortedStudent.length; i++) {
 
-    if (sortedStudent[i].name == false){
+    if (sortedStudent[i].name === "" ) {
         alert("FILL IN YOUR NAME");
     } else {
 
@@ -67,18 +69,29 @@ const printedCard = () => {
     domString += `<div class="card-body">`
     domString += `<h3 class="card-title">${sortedStudent[i].name}</h3>`
     domString += `<h5>${sortedStudent[i].house}<h5>`
-    domString += `<button id="expel" class="btn btn-primary">To Azkaban!</button>`
+    domString += `<button id="${sortedStudent[i].unique}" class="btn btn-primary expel">Expelliarmus!</button>`
     domString += `</div>`
     domString += `</div>`
+    
 }
 }
       printToDom('#card', domString);
-      document.querySelector('#expel').addEventListener('click', expelStudent)
+      const buttons = document.querySelectorAll('.expel');
+        for(let i = 0; i < buttons.length; i++)buttons[i].addEventListener('click', expelStudent);
 }
 
-expelStudent = () => {
+const expelStudent = () => {
+  //  console.log('epxel works');
+  let tempStudent = sortedStudent;
 
-}
+  for (let i = 0; i < sortedStudent.length; i++) {
+
+    if (event.target.id === `${sortedStudent[i].unique}`) {
+      tempStudent.splice(i , 1);
+    }
+  }
+  printedCard(tempStudent);
+};
 
 const clickEvents = () => {
     document.querySelector('#openForm').addEventListener('click', openForm);
