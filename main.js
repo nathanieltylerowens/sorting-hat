@@ -13,7 +13,7 @@ const openForm = (event) => {
     domString +=`<label for="name">Scroll your name here!</label>`
     domString +=`<input type="text" class="form-control" id="name" placeholder="Neville Longbottom">`
     domString +=`</div>`
-    domString +=`<button id="sort" type="submit" class="btn btn-primary">Sort</button>`
+    domString +=`<button id="sort" type="submit" class="btn btn-danger">Sort</button>`
     domString +=`</form>`
 
     printToDom('#form', domString);
@@ -55,6 +55,8 @@ const sortStudent = (event) => {
   student.unique = Math.floor(Math.random() * 100);
   sortedStudent.push(student);
 
+  document.querySelector('#name').value="";
+
   printedCard();
 }
 
@@ -69,7 +71,7 @@ const printedCard = () => {
     domString += `<div class="card-body">`
     domString += `<h3 class="card-title">${sortedStudent[i].name}</h3>`
     domString += `<h5>${sortedStudent[i].house}<h5>`
-    domString += `<button id="${sortedStudent[i].unique}" class="btn btn-primary expel">Expelliarmus!</button>`
+    domString += `<button id="${sortedStudent[i].unique}" class="btn btn-success expel">Expelliarmus!</button>`
     domString += `</div>`
     domString += `</div>`
     
