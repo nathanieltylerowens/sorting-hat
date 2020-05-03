@@ -1,11 +1,12 @@
 body{
-    background-color: whitesmoke;
+    background-color: whitesmoke
 }
 form{
     /* display: none; */
     max-width: 500px;
     text-align: center;
 }
+
 #form{
     display: flex;
     justify-content: center;

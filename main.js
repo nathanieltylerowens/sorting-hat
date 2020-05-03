@@ -44,7 +44,7 @@ const sortedStudent= [];
 // console.log(sortedStudent);
 const sortStudent = (event) => {
   // console.log(sortedStudent);
-  let student = [];
+  let student = {};
 
   if (document.querySelector('#name').value === "" ) {
     alert("FILL IN YOUR NAME");
