@@ -9,7 +9,7 @@ const printToDom = (selector, textToPrint) => {
 const openForm = (event) => {
     let domString = '';
 
-    domString += `<form id="myForm">`
+    domString += `<form id="myForm" action="javascript:void(0)">`
     domString +=`<label for="name">Scroll your name here!</label>`
     domString +=`<input type="text" class="form-control" id="name" placeholder="Neville Longbottom">`
     domString +=`</div>`
@@ -40,7 +40,7 @@ const sortingHat = () =>{
   }
 }
 
-const sortedStudent= [];
+const sortedStudent = [];
 // console.log(sortedStudent);
 const sortStudent = (event) => {
   // console.log(sortedStudent);
